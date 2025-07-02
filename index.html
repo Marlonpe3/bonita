@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glamour Studio - Salón de Belleza Premium</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Variables */
+        :root {
+            --primary-color: #ff6b8b;
+            --secondary-color: #ffb3c1;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+            --text-color: #555;
+            --white: #fff;
+            --black: #000;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --transition: all 0.3s ease;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --pink-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        /* Estilos base */
+        body {
+            font-family: var(--font-body);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #fdf5f7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--dark-color);
+        }
+
+        a {
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .text-pink {
+            color: var(--primary-color);
+        }
+
+        .bg-pink {
+            background-color: var(--primary-color);
+        }
+
+        .bg-pink-opacity {
+            background-color: rgba(255, 107, 139, 0.9);
+        }
+
+        .bg-pink-gradient {
+            background: var(--pink-gradient);
+        }
+
+        .btn-pink {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            transition: var(--transition);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+
+        .btn-pink:hover {
+            background-color: #e55a7c;
+            border-color: #e55a7c;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-outline-pink {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+
+        .btn-outline-pink:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Header */
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            padding: 12px 0;
+        }
+
+        .navbar-brand h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .navbar-brand span {
+            color: var(--primary-color);
+        }
+
+        .nav-link {
+            font-weight: 600;
+            position: relative;
+            padding: 10px 15px !important;
+            color: var(--dark-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 15px;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: calc(100% - 30px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, #fdf5f7 0%, #ffffff 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: var(--pink-gradient);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: var(--pink-gradient);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 2;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: rotate(-2deg);
+        }
+
+        .hero-image img {
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Services */
+        .services {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: var(--pink-gradient);
+            border-radius: 50%;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .service-price {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-top: 10px;
+        }
+
+        /* Promo */
+        .promo {
+            padding: 100px 0;
+            background: var(--pink-gradient);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .promo::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .promo-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .promo h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .promo p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        /* Team */
+        .team {
+            padding: 100px 0;
+            background-color: var(--light-color);
+            position: relative;
+        }
+
+        .team::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: var(--pink-gradient);
+            border-radius: 50%;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .team-member {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-img {
+            height: 320px;
+            overflow: hidden;
+        }
+
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-member:hover .team-img img {
+            transform: scale(1.05);
+        }
+
+        .team-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .team-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .team-info .position {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: var(--white);
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: var(--pink-gradient);
+            border-radius: 50%;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--light-color);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 5rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+            font-family: var(--font-heading);
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+            border: 3px solid var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #fdf5f7 0%, #ffffff 100%);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-control, .form-select {
+            padding: 15px;
+            border: 1px solid #e1e1e1;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(255, 107, 139, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: var(--white);
+            padding: 70px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo h3 {
+            color: var(--white);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: var(--primary-color);
+        }
+
+        .footer-links h4, .footer-hours h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .footer-hours p {
+            margin-bottom: 10px;
+            color: #bbb;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Animaciones */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero {
+                padding: 120px 0 60px;
+            }
+            
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .hero {
+                padding: 100px 0 40px;
+                text-align: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-btns {
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .promo h3 {
+                font-size: 1.8rem;
+            }
+            
+            .promo p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <h1>Glamour<span>Studio</span></h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#equipo">Equipo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonios">Testimonios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+                <a href="#contacto" class="btn btn-pink ms-lg-4">Reservar cita</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h2>Tu belleza es <span class="text-pink">nuestra pasión</span></h2>
+                        <p>En Glamour Studio nos especializamos en realzar tu belleza natural con tratamientos personalizados y de alta calidad.</p>
+                        <div class="d-flex flex-wrap gap-3 hero-btns">
+                            <a href="#contacto" class="btn btn-pink">Reserva tu cita</a>
+                            <a href="#servicios" class="btn btn-outline-pink">Ver servicios</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image fade-in">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Salón de belleza">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <h2 class="section-title text-center">Nuestros Servicios</h2>
+            <p class="text-center mb-5 lead">Descubre nuestros tratamientos premium para realzar tu belleza</p>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Corte de Cabello">
+                        </div>
+                        <div class="service-content">
+                            <h3>Corte de Cabello</h3>
+                            <p>Corte profesional personalizado según tu estilo y tipo de cabello.</p>
+                            <p class="service-price">$35 - $60</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Coloración Profesional">
+                        </div>
+                        <div class="service-content">
+                            <h3>Coloración Profesional</h3>
+                            <p>Transforma tu look con nuestra coloración de alta calidad y cuidado.</p>
+                            <p class="service-price">$70 - $120</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Tratamiento de Keratina">
+                        </div>
+                        <div class="service-content">
+                            <h3>Tratamiento de Keratina</h3>
+                            <p>Elimina el frizz y obtén un cabello suave y manejable por meses.</p>
+                            <p class="service-price">$150 - $250</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Extensiones de Cabello">
+                        </div>
+                        <div class="service-content">
+                            <h3>Extensiones de Cabello</h3>
+                            <p>Añade longitud y volumen con nuestras extensiones de alta calidad.</p>
+                            <p class="service-price">$200 - $500</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Maquillaje Profesional">
+                        </div>
+                        <div class="service-content">
+                            <h3>Maquillaje Profesional</h3>
+                            <p>Maquillaje para ocasiones especiales realizado por nuestros expertos.</p>
+                            <p class="service-price">$50 - $100</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.pexels.com/photos/31091768/pexels-photo-31091768/free-photo-of-pedicure.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Manicura y Pedicura">
+                        </div>
+                        <div class="service-content">
+                            <h3>Manicura y Pedicura</h3>
+                            <p>Cuidado completo de uñas con esmaltado semipermanente opcional.</p>
+                            <p class="service-price">$30 - $60</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promoción -->
+    <section class="promo">
+        <div class="container">
+            <div class="promo-content">
+                <h3>¡Primera visita con 20% de descuento!</h3>
+                <p>Reserva ahora y obtén un 20% de descuento en tu primer servicio.</p>
+                <a href="#contacto" class="btn btn-light">Reservar ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section id="equipo" class="team">
+        <div class="container">
+            <h2 class="section-title text-center">Nuestro Equipo</h2>
+            <p class="text-center mb-5 lead">Conoce a nuestros expertos en belleza</p>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 fade-in">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="María González">
+                        </div>
+                        <div class="team-info">
+                            <h3>María González</h3>
+                            <span class="position">Estilista Senior</span>
+                            <p>Especialista en cortes y coloración con más de 10 años de experiencia.</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 fade-in">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Laura Martínez">
+                        </div>
+                        <div class="team-info">
+                            <h3>Laura Martínez</h3>
+                            <span class="position">Experta en Extensiones</span>
+                            <p>Certificada en las mejores técnicas de aplicación de extensiones.</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 fade-in">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Carlos Rodríguez">
+                        </div>
+                        <div class="team-info">
+                            <h3>Carlos Rodríguez</h3>
+                            <span class="position">Barbero Profesional</span>
+                            <p>Especialista en cortes masculinos y estilos modernos.</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 fade-in">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Ana Sánchez">
+                        </div>
+                        <div class="team-info">
+                            <h3>Ana Sánchez</h3>
+                            <span class="position">Maquilladora Profesional</span>
+                            <p>Creativa y detallista, especializada en maquillaje para eventos.</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios" class="testimonials">
+        <div class="container">
+            <h2 class="section-title text-center">Lo que dicen nuestros clientes</h2>
+            <p class="text-center mb-5 lead">Experiencias reales de nuestros clientes satisfechos</p>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-text">
+                        <p>El mejor salón al que he ido. María hizo magia con mi cabello y ahora recibo cumplidos todos los días. El ambiente es relajante y el personal muy profesional. Definitivamente volveré.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sofía Ramírez">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sofía Ramírez</h4>
+                            <p>Cliente frecuente</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="contact-form fade-in">
+                        <h2 class="section-title">Reserva tu cita</h2>
+                        <form id="appointment-form">
+                            <div class="form-group">
+                                <input type="text" id="name" class="form-control" placeholder="Nombre completo" required>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" id="email" class="form-control" placeholder="Correo electrónico" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="tel" id="phone" class="form-control" placeholder="Teléfono" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <select id="service" class="form-select" required>
+                                            <option value="" disabled selected>Selecciona un servicio</option>
+                                            <option value="1">Corte de Cabello</option>
+                                            <option value="2">Coloración Profesional</option>
+                                            <option value="3">Tratamiento de Keratina</option>
+                                            <option value="4">Extensiones de Cabello</option>
+                                            <option value="5">Maquillaje Profesional</option>
+                                            <option value="6">Manicura y Pedicura</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="date" id="date" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" class="form-control" rows="3" placeholder="Mensaje adicional (opcional)"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-pink w-100">Enviar reserva</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 fade-in">
+                    <div class="contact-info">
+                        <h2 class="section-title">Contacto</h2>
+                        <p><i class="fas fa-map-marker-alt me-2 text-pink"></i> Calle Belleza 123, Ciudad</p>
+                        <p><i class="fas fa-phone me-2 text-pink"></i> +1 234 567 890</p>
+                        <p><i class="fas fa-envelope me-2 text-pink"></i> info@glamourstudio.com</p>
+                        
+                        <h4 class="mt-5">Horario</h4>
+                        <p><i class="fas fa-clock me-2 text-pink"></i> Lunes - Viernes: 9:00 - 19:00</p>
+                        <p><i class="fas fa-clock me-2 text-pink"></i> Sábado: 10:00 - 16:00</p>
+                        <p><i class="fas fa-clock me-2 text-pink"></i> Domingo: Cerrado</p>
+                        
+                        <div class="social-links mt-4">
+                            <a href="#" class="btn btn-outline-pink btn-social"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="btn btn-outline-pink btn-social"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="btn btn-outline-pink btn-social"><i class="fab fa-tiktok"></i></a>
+                            <a href="#" class="btn btn-outline-pink btn-social"><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+                        
+                        <div class="mt-5">
+                            <h4>¿Cómo llegar?</h4>
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.527631324012326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1625692340000!5m2!1sen!2sus" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Glamour<span>Studio</span></h3>
+                    <p>Tu salón de belleza de confianza</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#equipo">Equipo</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-hours">
+                    <h4>Horario</h4>
+                    <p>Lunes - Viernes: 9:00 - 19:00</p>
+                    <p>Sábado: 10:00 - 16:00</p>
+                    <p>Domingo: Cerrado</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Glamour Studio. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Navegación móvil
+            $('.navbar-toggler').click(function() {
+                $(this).toggleClass('active');
+                $('.navbar-collapse').toggleClass('show');
+            });
+            
+            // Cerrar menú al hacer clic en un enlace
+            $('.nav-link').click(function() {
+                $('.navbar-collapse').removeClass('show');
+                $('.navbar-toggler').removeClass('active');
+            });
+            
+            // Header scroll effect
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 50) {
+                    $('.navbar').addClass('scrolled');
+                } else {
+                    $('.navbar').removeClass('scrolled');
+                }
+            });
+            
+            // Animación al hacer scroll
+            function checkFade() {
+                $('.fade-in').each(function() {
+                    var elementTop = $(this).offset().top;
+                    var elementBottom = elementTop + $(this).outerHeight();
+                    var viewportTop = $(window).scrollTop();
+                    var viewportBottom = viewportTop + $(window).height();
+                    
+                    if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                        $(this).addClass('visible');
+                    }
+                });
+            }
+            
+            // Ejecutar al cargar y al hacer scroll
+            $(window).on('scroll load', checkFade);
+            checkFade();
+            
+            // Formulario de reserva
+            $('#appointment-form').submit(function(e) {
+                e.preventDefault();
+                
+                // Validación simple
+                var name = $('#name').val();
+                var email = $('#email').val();
+                var phone = $('#phone').val();
+                var service = $('#service').val();
+                var date = $('#date').val();
+                
+                if (!name || !email || !phone || !service || !date) {
+                    alert('Por favor complete todos los campos requeridos');
+                    return;
+                }
+                
+                // Simular envío
+                alert('¡Gracias ' + name + '! Tu cita ha sido reservada. Te enviaremos un correo de confirmación.');
+                $(this).trigger('reset');
+            });
+            
+            // Smooth scrolling
+            $('a[href^="#"]').click(function(e) {
+                e.preventDefault();
+                var target = $(this).attr('href');
+                $('html, body').animate({
+                    scrollTop: $(target).offset().top - 80
+                }, 800);
+            });
+        });
+    </script>
+</body>
+</html>
